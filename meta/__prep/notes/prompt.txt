@@ -1,0 +1,46 @@
+so the main prompt is:
+a game that suddenly changes gameplay and introduces a plot
+
+=============================
+
+elaborated prompt:
+
+the game starts out as a simple tic-tac-toe, but after a "few" games, it suddenly
+changes for a text-based adventure game, the likes of Colossal Cave Adventure
+
+in this section of the game, you are suddenly facing what seems to be a
+terminal-based truth or dare, starting out innocently, but devolving into serious
+questions about you and your actions.
+
+the "canon" storyline follow the player honestly answering each question, though
+it soon appears that the "engine"(?) asking the questions' opinion is very
+oriented in favor of some sort of futuristic techno-theocratic government(?).
+
+the game then shifts for a roguelike/dungeon crawler type of game, ressembling
+what we did as the first mini-project, a nice wrapup to this year's work and
+ativities
+:D
+
+---
+
+the truth or dare shifts to the roguelike phase by the player inputting "canon"
+answers, resulting in the "engine" announcing that you will be
+prosecuted/convicted of some horrible charge i have yet to think of :^)
+
+-
+
+the game over screen would be the game's ASCII logo, followed by a short message
+the like of Shadowgate's death screen's on the NES.
+basically smthn along thee lines of:
+
+you [insert fate here].
+you feel like finally fathoming the perception of [Martyrdom]. <- in brackets yes
+
+^
+|
+btw whenever "Martyrdom" is being written anywhere at any point in the game, it
+appears in brackets : [like this] = [Martyrdom]
+
+---
+
+=============================

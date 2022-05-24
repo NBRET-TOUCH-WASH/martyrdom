@@ -1,5 +1,12 @@
-# martyrdom
-Repository for the final NSI mini-project: "Martyrdom"
+<!--# martyrdom-->
+
+![Martyrdom ASCII title](meta/README/assets/martyrdomTitle/martyrdomTitle.png)
+
+&nbsp;
+
+Repository for the **final** NSI mini-project: `Martyrdom`
+
+&nbsp;
 
 ---
 
