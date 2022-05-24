@@ -1,0 +1,107 @@
+a (non-exhaustive?) list of easter eggs to be done:
+
+==================================
+
+CHAPTER 0: Main Menu
+
+
+eef
+
+==================================
+
+CHAPTER 1: Tic-Tac-Toe
+
+
+eef
+
+==================================
+
+CHAPTER 2: BALL STRETCHER <--- no
+CHAPTER 2: Colossal Cave Adventure-like
+
+
+Player inputs: (case isn't supposed to matter at the time i'm writing this)
+    -> KILL REVOLVER OCELOT
+        => "OCELOT IS DEAD"
+        => "TIME PARADOX"
+        => "Snake, what have you done?" ; "You changed the future!!" ; "You've created a time paradox!"
+        => "Problem Solved, Series Over."
+
+    -> "WHY WON'T YOU DIE?!" <--- the quotation marks indicate that this is a thing the player must say, not input as an action or smthn else
+        => "Nanomachines, son." ; "They harden in response to physicaul trauma." ; "*punches the ground*" ; "You can't hurt me, Jack."
+
+
+    -> "WHAT DATE IS IT?"
+        => "A.D. 2101"
+            -> "WHAT HAPPEN?"
+                => "I'd answer with the whole "ALL YOUR BASE ARE BELONG TO US" meme, but I think the joke's gotten a bit old since then..."
+
+
+    -> sus
+        =>  """
+                STOP. POSTING. ABOUT AMONG US. I'm tired of seeing it!
+                My friends on TikTok send me memes, on Discord it's FUCKING memes...
+                I was in... a server, right? And ALL of the channels were just Among Us stuff.
+                I-I showed my Champion underwear to my girlfriend, and the logo, I flipped it, and I said: "Hey Babe, when the underwear sus, HAHA!"
+                DING DING DING DING DING DING DING, DI-DI-DING.
+                I fucking looked at a trashcan, I said: "That's a bit sussy!" ; I looked at my penis, I think of the astronaut's helmet, and I go:"Penis? More like pen-SUS!"
+                AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH!
+
+                https://invidious.snopyta.org/watch?v=WiGM7D2wZlI
+            """
+        => <clear console> <--- the french quotes indicate an action from the program
+
+
+    -> GIVE OATH TO RETRIBUTION
+        => " "This is gonna be a word to mouth kind of thing." "
+        => " "Tonight. When you finish your normal cue at [???], we want you guys to... get a little creative, and come up with a reason to go down." "
+        => " "Okay so we're coming down for... maintenance? Like a "for science" tech thing?" "
+        => "Scythelord - "Oath To Retribution", Toxic Minds - track 1; 2016"
+    -> RETURN COFFIN
+        => "Yet Another conflict" ; "Where communication is dead" ; "Their solution is a bullet to your head"
+        => "You're a coffin returned hero" ; "But you've died for nothing"
+        => "Die For Nothing" ; "Like all those before"
+        => "Scythelord - "Die for Nothing", Toxic Minds - track 3; 2016"
+    -> BREAK PALACE OF GLASS
+        => "Sitting comfortably" ; "From atop this tower tall" ; "Until this fateful day" ; "When it all falls down"
+        => "Cornered like a rat" ; "Won't answer to your crimes" ; "Now take the easy way out" ; "Die"
+        => "Scythelord - "Palace Of Glass", Toxic Minds - track 6; 2016"
+    -> SHIFT TO RED
+        => "Insignificant place" ; "In this infinite space" ; "Life are silenced without a trace"
+        => "White noise inbound" ; "The stars are gone and then drowned"
+        => "Technology won't save" ; "This cosmic grave" ; "Your cosmic grave"
+        => "Scythelord - "Red Shift", Toxic Minds - track 9; 2016"
+
+    -> WAKE TO ECHO CHAMBER
+        => "I Remember" ; "Waking to the echo chamber"
+        => "To My" ; "Equanimity" ; "Seizes my reality"
+        => "May we dream away" ; "To dwell in realm of this better day"
+        => "Claws at my soul now I break these burning chains" ; "Now spread my wings free of what was my weak remains"
+        => "Scythelord - "Equanimity", Earth Boiling Dystopia - track 3; 2021"
+    -> OPEN DOORS TO A DARK TIME
+        => "Låt oss öppna dörrarna till en mörk tid" ; "En verklighet som förrätts av strid"
+        => "En värld av hat är allt jag ser" ; "Då livet bleknar mer och mer" ; "Ingenting står kvar I tidens makt" ; "Då vi dör I varandras förakt" ; "Sälj mig gift och förstör mitt sinne" ; "Då mitt tvivel blir blott ett minne"
+        => "Scythelord - "Just a Memory", Earth Boiling Dystopia - track 6; 2021"
+    -> BOIL EARTH WITH DYSTOPIA
+        => "Nihilism a marque fashion statement" ; "Zeitgeist, come electric christ"
+        => "I spit on the kind that cannot think" ; "Individuality, preached the collective" ; "I'd laugh if it wasn't so real"
+        => "Blood in the streets, fire in thе sky" ; "How much is it worth to justify"
+        => "The sky is falling" ; "Systems are calling" ; "Let me unravel the techno-phobia" ; "Into earth boiling dystopia"
+        => "Its only perspective I try to rationalize" ; "But even the air we now seem to ostracize"
+        => "Oh come rebirth let it wash away" ; "We're one step closer to a better day"
+        => "Scythelord - "Earth Boiling Dystopia", Earth Boiling Dystopia - track 8; 2021"
+    -> SCORCH UTOPIA
+        => "The skies have now fallen"
+        => "The systems stopped calling" ;
+        => "Let the rain clear" ; "See our sky" ; "Appear once again"
+        => "Let the rain wash it all away"
+        => "Scythelord - "Scorched Utopia", Earth Boiling Dystopia - track 9; 2021"
+
+==================================
+
+CHAPTER 3: Dungeon Crawler
+
+
+eef
+
+==================================
