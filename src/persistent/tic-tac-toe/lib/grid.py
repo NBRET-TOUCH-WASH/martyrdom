@@ -3,6 +3,7 @@
 
 
 #modules
+import random
 
 
 
@@ -26,13 +27,37 @@ class Grid:
     def register_input(self, inputA, inputB):
         """ registers the user's input and changes the grid's states accordingly """
 
-        #inputBufferA, inputBufferB = None
         userInput = (inputA,inputB)
 
         if self.states[userInput] == 0:
             self.states[userInput] = 1
         else:
             print("This cell is not empty, it cannot be marked twice.\nPlease choose another cell to mark.")
+
+
+    #def respond(self, inputY, inputX): commented cuz maybe it'll be useful later idk
+    def respond(self):
+        """ responds to the player's move. put here after failure to create a separate AI class """
+
+        """
+        reference:
+        self.states = {
+            (0,0):0, (0,1):0, (0,2):0,
+            (1,0):0, (1,1):1, (1,2):0,
+            (2,0):0, (2,1):0, (2,2):0
+        }
+        """
+
+        while True:
+            cpuMove = (random.randint(0,2),random.randint(0,2))
+
+            if self.states[cpuMove] == 0:
+                self.states[cpuMove] = 2
+                break
+            elif self.states[cpuMove] == 1:
+                continue
+            else:
+                continue
 
 
     def draw_grid(self):
@@ -42,13 +67,13 @@ class Grid:
             print("\n|", end="")
 
             for x in range(0, self.rows, 1):
-                if self.states[(y,x)] == 0:
+                if self.states[(x,y)] == 0:
                     print("-", end="")
 
-                elif self.states[(y,x)] == 1:
+                elif self.states[(x,y)] == 1:
                     print("X", end="")
 
-                elif self.states[(y,x)] == 2:
+                elif self.states[(x,y)] == 2:
                     print("O", end="")
                 print("|", end="")
 
