@@ -1,7 +1,7 @@
 #coding:utf-8
 
 class Nanomachines:
-    """ nanomachines. harden in response to physicaul trauma.
+    """ nanomachines. harden in response to physical trauma.
     Jack cannot hurt them. """
 
     def __init__(self):
@@ -14,7 +14,7 @@ class Nanomachines:
 
 
     def present_self(self):
-        """ explains to the ennemy why the user won't die """
+        """ explains to the ennemy why the nanomachines user won't die """
 
         self.harden()
         print("Nanomachines, son.")
@@ -50,7 +50,7 @@ class Nanomachines:
 
     def punch_ground(self):
         """ punches the ground to demonstrate the workings of said nanomachines """
-        print("*punches ground*")
+        print("*punches ground vigorously*")
 
 
 
