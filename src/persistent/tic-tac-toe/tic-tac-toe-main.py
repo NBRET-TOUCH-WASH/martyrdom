@@ -4,21 +4,20 @@
 """
 + ============================================================================================= +
 /                                                                                               /
-/   the import statement below is kept because of its historical significance in this project   /
+/  the import statement below is kept because of its historical significance in this project.   /
+/                                     do not ask questions.                                     /
 /                                                                                               /
 + ============================================================================================= +
 
-                                #from os import stat_result
+                                    #from os import stat_result
 
 """
 
 
 #modules
-import lib.components.grid as grid
+import sys
 
-
-
-#classes
+import lib.grid as grid
 
 
 
@@ -29,6 +28,8 @@ import lib.components.grid as grid
 #variables
 grid1 = grid.Grid()
 
+switch = 1
+
 
 
 #script
@@ -38,6 +39,32 @@ while True:
 
     print(grid1.check_for_win())
 
-    inputY = int(input("what column?\n> "))
-    inputX = int(input("what row?\n> "))
-    grid1.register_input(inputY, inputX)
+
+    if switch == 1:
+        while True:
+            inputY = int(input("what column?\n> "))
+            if 0 <= inputY <= 2:
+                pass
+            else:
+                print("Invalid column index. Please try again.")
+                continue
+            inputX = int(input("what row?\n> "))
+            if 0 <= inputX <= 2:
+                pass
+            else:
+                print("Invalid row index. Please try again.")
+                continue
+            break
+        grid1.register_input(inputY, inputX)
+        if grid1.states[(inputY,inputX)] != 1:
+            continue
+        else:
+            pass
+
+        switch *= -1
+
+    elif switch == -1:
+        grid1.respond()
+        switch *= -1
+    else:
+        sys.exit(1)
