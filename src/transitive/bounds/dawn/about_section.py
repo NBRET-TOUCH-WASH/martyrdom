@@ -2,6 +2,7 @@
 
 #modules
 import blessings.mainMenu_asciiArt as asciiArt
+import lib.colorPrint as colorPrint
 
 
 
@@ -30,7 +31,7 @@ Enjoy!
 
 
     def print_about_section(self):
-        print(self.header)
+        colorPrint.color_print(self.header, colorPrint.Fore.RED)
         print("")
         print(self.credits)
         print('\t' * 2, '- ' * 10, '\n\n')
@@ -43,9 +44,9 @@ Enjoy!
 
 
 #variables
-#about1 = AboutSection()
+about1 = AboutSection()
 
 
 
 #script
-#about1.print_about_section()
+about1.print_about_section()

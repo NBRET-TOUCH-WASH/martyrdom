@@ -2,6 +2,7 @@
 
 #modules
 import blessings.mainMenu_asciiArt as asciiArt
+import lib.colorPrint as colorPrint
 
 
 
@@ -26,9 +27,9 @@ class SettingsSection():
 
 
     def print_settings_section(self):
-        print(self.header)
+        colorPrint.color_print(self.header, colorPrint.Fore.RED)
         print("")
-        print(self.body)
+        colorPrint.color_print(self.body, colorPrint.Fore.LIGHTYELLOW_EX)
 
 
 

@@ -2,6 +2,7 @@
 
 #modules
 import blessings.mainMenu_asciiArt as asciiArt
+import lib.colorPrint as colorPrint
 
 
 
@@ -15,12 +16,12 @@ class MainMenu:
 
 
     def print_menu(self):
-        print(self.titleHeader, "\n\n")
+        colorPrint.color_print(self.titleHeader, colorPrint.Fore.RED, "\n\n")
 
-        print('\t' * 5,'=' * 50)
+        print('\t' * 5 + '=' * 50)
         for s in self.sections.values():
-            print('\t' * 7, ' ' * 5, s)
-        print('\t' * 5,'=' * 50)
+            colorPrint.color_print('\t\t\t\t\t\t\t     {}'.format(s), colorPrint.Fore.LIGHTRED_EX)
+        print('\t' * 5 + '=' * 50)
 
 
     def select_option(self):
@@ -47,8 +48,8 @@ class MainMenu:
 #variables
 """
 ? used for testing purposes
-mainMenu1 = MainMenu()
 """
+mainMenu1 = MainMenu()
 
 
 
@@ -56,6 +57,6 @@ mainMenu1 = MainMenu()
 
 """
 ? used for testing purposes
+"""
 mainMenu1.print_menu()
 mainMenu1.select_option()
-"""
