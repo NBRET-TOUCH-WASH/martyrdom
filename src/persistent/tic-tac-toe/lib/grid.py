@@ -24,6 +24,25 @@ class Grid:
             (2,0):0, (2,1):0, (2,2):0
         }
 
+        self.lossReactions = {
+            0:"Gah! I'll get you for this!",
+            1:"You little... Guh, I'll get you on the next one.",
+            2:"What!?",
+            3:"Nice one.",
+            4:"Congratulations!",
+            5:"Didn't see that one coming...",
+            6:"Aww... How about another one?"
+        }
+        self.winReactions = {
+            0:"Haha! How's that?",
+            1:"Woo-hoo!",
+            2:"Now THAT was a masterclass.",
+            3:"You fought well!",
+            4:"Gottem.",
+            5:"Didn't see that one coming, did you?",
+            6:"Phew, that was a tough one!"
+        }
+
 
     def register_input(self, inputA, inputB):
         """ registers the user's input and changes the grid's states accordingly """
@@ -52,6 +71,15 @@ class Grid:
                 continue
             else:
                 continue
+
+
+    def lose(self):
+        """ reacts to losing """
+        colorPrint.color_print("[P2 - CPU]: " + self.lossReactions[random.randint(0,6)], colorPrint.Fore.RED)
+
+    def win(self):
+        """ reacts to winning """
+        colorPrint.color_print("[P2 - CPU]: " + self.winReactions[random.randint(0,6)], colorPrint.Fore.RED)
 
 
     def reset_game(self):

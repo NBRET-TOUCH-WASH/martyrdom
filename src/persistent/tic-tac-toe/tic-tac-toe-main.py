@@ -47,12 +47,14 @@ def play_tic_tac_toe():
         grid1.draw_grid()
         print("\n\n")
 
-        if grid1.check_for_win() == 0:
+        if grid1.check_for_win() == 0: #TOFIX: PROGRAM CAN'T TELL WHEN A GAME IS A DRAW!!!!!!!!!!!!!!!!!
             pass
 
         elif grid1.check_for_win() == 1:
             time.sleep(1)
-            colorPrint.color_print("[P1] has won this game!", colorPrint.Fore.YELLOW)
+            colorPrint.color_print("[P1] has won the game!\n", colorPrint.Fore.YELLOW)
+            time.sleep(1)
+            grid1.lose()
             time.sleep(2)
 
             wonGames += 1
@@ -61,16 +63,15 @@ def play_tic_tac_toe():
             elif wonGames == 3:
                 return 1
 
-            playAgain = input("Would you like to play again? (y/n)\n> ")
+            playAgain = input("\nWould you like to play again? (y/n)\n> ")
             if playAgain == "y":
-                
                 grid1.reset_game()
 
                 switch = 1
                 continue
 
             elif playAgain == "n":
-                sys.exit(0) #TODO: make it so that you go back to the main menu!!!!!!!!!!!!!!!!!!!!!!!
+                return 0
 
             else:
                 sys.exit(1)
@@ -78,14 +79,16 @@ def play_tic_tac_toe():
 
         elif grid1.check_for_win() == 2:
             time.sleep(1)
-            colorPrint.color_print("[P2 - CPU] has won this game!", colorPrint.Fore.YELLOW)
+            colorPrint.color_print("[P2 - CPU] has won the game!\n", colorPrint.Fore.YELLOW)
+            time.sleep(1)
+            grid1.win()
             time.sleep(2)
 
-            playAgain = input("Would you like to play again?\n> ")
+            playAgain = input("\nWould you like to play again? (y/n)\n> ")
             if playAgain == "y":
                 pass
             elif playAgain == "n":
-                sys.exit(0) #TODO: make it so that you go back to the main menu!!!!!!!!!!!!!!!!!!!!!!!
+                return 0
             else:
                 sys.exit(1)
 
@@ -96,6 +99,8 @@ def play_tic_tac_toe():
 
 
         if switch == 1:
+            gameBegun = True
+
             time.sleep(1)
             colorPrint.color_print("[P1], it is now your turn to play.\n", colorPrint.Fore.CYAN, colorPrint.Style.NORMAL)
             time.sleep(1)
@@ -134,6 +139,8 @@ def play_tic_tac_toe():
 
 
         elif switch == -1:
+            gameBegun = True
+
             time.sleep(1)
             colorPrint.color_print("It is now [P2 - CPU]'s turn to play.\n", colorPrint.Fore.RED, colorPrint.Style.NORMAL)
             time.sleep(1)
