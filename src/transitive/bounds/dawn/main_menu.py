@@ -12,16 +12,19 @@ class MainMenu:
 
     def __init__(self):
         self.titleHeader = asciiArt.titleHeader
+        self.credits = '\t' * 7 + "NBRET-TOUCH-WASH, 2022"
+
         self.sections = {0:"1 - Play!",1:"2 - About",2:"3 - Settings",3:"4 - Quit"}
 
 
     def print_menu(self):
-        colorPrint.color_print(self.titleHeader, colorPrint.Fore.RED, "\n\n")
+        colorPrint.color_print(self.titleHeader, colorPrint.Fore.RED)
+        colorPrint.color_print(self.credits, colorPrint.Fore.LIGHTMAGENTA_EX, '\n')
 
-        print('\t' * 5 + '=' * 50)
+        print('\n'*2 + '\t'*5 + '='*50)
         for s in self.sections.values():
-            colorPrint.color_print('\t\t\t\t\t\t\t     {}'.format(s), colorPrint.Fore.LIGHTRED_EX)
-        print('\t' * 5 + '=' * 50)
+            colorPrint.color_print('\t'*7 + ' '*5 + '{}'.format(s), colorPrint.Fore.LIGHTRED_EX)
+        print('\t'*5 + '='*50)
 
 
     def select_option(self):
