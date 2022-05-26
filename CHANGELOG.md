@@ -14,3 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Game logo/title (`martyrdomTitle.png`)
 - `LICENSE`
 - `CHANGELOG.md`
+- Directories structure
+    - Game phases/sections
+    - Libraries
+    - Assets
