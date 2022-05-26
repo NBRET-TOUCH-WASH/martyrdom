@@ -1,7 +1,7 @@
 #coding:utf-8
 
 #modules
-import blessings.main_menu_asciiArt as mainMenu
+import blessings.mainMenu_asciiArt as asciiArt
 
 
 
@@ -10,7 +10,7 @@ class MainMenu:
     """ main menu for the game """
 
     def __init__(self):
-        self.titleHeader = mainMenu.titleHeader
+        self.titleHeader = asciiArt.titleHeader
         self.sections = {0:"1 - Play!",1:"2 - About",2:"3 - Settings",3:"4 - Quit"}
 
 
