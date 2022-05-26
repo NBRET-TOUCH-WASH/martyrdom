@@ -1,9 +1,10 @@
 #coding:utf-8
 
-
-
 #modules
 import random
+import time
+
+import lib.colorPrint as colorPrint
 
 
 
@@ -32,21 +33,14 @@ class Grid:
         if self.states[userInput] == 0:
             self.states[userInput] = 1
         else:
+            self.states[userInput] = 0
             print("This cell is not empty, it cannot be marked twice.\nPlease choose another cell to mark.")
+            time.sleep(3)
 
 
     #def respond(self, inputY, inputX): commented cuz maybe it'll be useful later idk
     def respond(self):
         """ responds to the player's move. put here after failure to create a separate AI class """
-
-        """
-        reference:
-        self.states = {
-            (0,0):0, (0,1):0, (0,2):0,
-            (1,0):0, (1,1):1, (1,2):0,
-            (2,0):0, (2,1):0, (2,2):0
-        }
-        """
 
         while True:
             cpuMove = (random.randint(0,2),random.randint(0,2))
@@ -60,6 +54,13 @@ class Grid:
                 continue
 
 
+    def reset_game(self):
+        """ resets the grid, allowing for a new game to take place """
+
+        for s in self.states:
+            self.states[s] = 0
+
+
     def draw_grid(self):
         """ draws the tic-tac-toe grid """
 
@@ -68,13 +69,13 @@ class Grid:
 
             for x in range(0, self.rows, 1):
                 if self.states[(x,y)] == 0:
-                    print("-", end="")
+                    colorPrint.color_print("-", colorPrint.Fore.GREEN, end="")
 
                 elif self.states[(x,y)] == 1:
-                    print("X", end="")
+                    colorPrint.color_print("X", colorPrint.Fore.CYAN, end="")
 
                 elif self.states[(x,y)] == 2:
-                    print("O", end="")
+                    colorPrint.color_print("O", colorPrint.Fore.RED, end="")
                 print("|", end="")
 
 
