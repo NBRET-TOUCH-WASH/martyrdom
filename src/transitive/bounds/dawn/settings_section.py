@@ -38,9 +38,9 @@ class SettingsSection():
 
 
 #variables
-settings1 = SettingsSection()
+#settings1 = SettingsSection()
 
 
 
 #script
-settings1.print_settings_section()
+#settings1.print_settings_section()

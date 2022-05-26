@@ -44,9 +44,9 @@ Enjoy!
 
 
 #variables
-about1 = AboutSection()
+#about1 = AboutSection()
 
 
 
 #script
-about1.print_about_section()
+#about1.print_about_section()
