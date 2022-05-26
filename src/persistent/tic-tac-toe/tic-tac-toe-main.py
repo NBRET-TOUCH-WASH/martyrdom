@@ -45,12 +45,13 @@ def play_tic_tac_toe():
     while True:
         display.clear_console()
         grid1.draw_grid()
-        print("\n")
+        print("\n\n")
 
         if grid1.check_for_win() == 0:
             pass
 
         elif grid1.check_for_win() == 1:
+            time.sleep(1)
             colorPrint.color_print("[P1] has won this game!", colorPrint.Fore.YELLOW)
             time.sleep(2)
 
@@ -76,6 +77,7 @@ def play_tic_tac_toe():
 
 
         elif grid1.check_for_win() == 2:
+            time.sleep(1)
             colorPrint.color_print("[P2 - CPU] has won this game!", colorPrint.Fore.YELLOW)
             time.sleep(2)
 
@@ -94,7 +96,9 @@ def play_tic_tac_toe():
 
 
         if switch == 1:
+            time.sleep(1)
             colorPrint.color_print("[P1], it is now your turn to play.\n", colorPrint.Fore.CYAN, colorPrint.Style.NORMAL)
+            time.sleep(1)
 
             while True:
                 try:
@@ -130,7 +134,9 @@ def play_tic_tac_toe():
 
 
         elif switch == -1:
-            colorPrint.color_print("It is now your opponent's [P2 - CPU] turn to play.\n", colorPrint.Fore.RED, colorPrint.Style.NORMAL)
+            time.sleep(1)
+            colorPrint.color_print("It is now [P2 - CPU]'s turn to play.\n", colorPrint.Fore.RED, colorPrint.Style.NORMAL)
+            time.sleep(1)
             print("[P2 - CPU] is thinking...\n") #lmao it actually isn't :^)
 
             grid1.respond()
