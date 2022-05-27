@@ -68,7 +68,7 @@ def play_intro2():
     time.sleep(3)
 
     input("(Press [RETURN] to continue...) > ")
-
+# 4 - eat up.
 def play_intro3():
     """ plays the intro detailing the grid coordinates """
 

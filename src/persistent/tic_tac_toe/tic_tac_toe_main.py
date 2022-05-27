@@ -59,19 +59,26 @@ def color_print(s, color = Fore.WHITE, brightness = Style.NORMAL, **kwargs):
 
 
 #script
-def play_tic_tac_toe(grid1):
+"""
+    My code is made out of too much spaghetti…
+    … Now I regretti.
+"""
+def play_tic_tac_toe(grid1, aiCheat, cheat):
     #grid1 = grid.Grid()
 
     switch = 1
-    wonGames = 0
+
+    if cheat == True:#!!!!DEBUG!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        wonGames = 2
+    else:
+        wonGames = 0
+
     lostGames = 0
     playAgain = None
 
 
     while True:
         clear_console()
-
-
         #print('\n')
         print('\n' + '+ ' + '='*45 + ' +' + '\n')
 
@@ -92,59 +99,134 @@ def play_tic_tac_toe(grid1):
         print('\n' + '+ ' + '='*45 + ' +' + '\n\n')
 
 
+        if aiCheat == True:
+            grid1.cheat() #pretty hacky solution but hey if it works lol
+            grid1.draw_grid()
+            print("\n\n")
+            time.sleep(2)
+
+            color_print("Better luck next time.... ;)\n\n", Fore.RED)
+            time.sleep(3)
+
+            color_print("WHAT!?", Fore.CYAN)
+            time.sleep(1)
+            color_print("WHAT THE [expletive] IS THIS?!\n", Fore.CYAN)
+            time.sleep(2)
+            color_print("Okay so first I get teased with a PC version of Castlevania on the NES..", Fore.CYAN)
+            time.sleep(3)
+            color_print("Then it turns out I got scammed into playing a shitty in-console version of Tic-Tac-Toe...", Fore.CYAN)
+            time.sleep(4)
+            color_print("AND NOW THE GAME IS CHEATING?!!\n", Fore.CYAN)
+            time.sleep(3)
+            color_print("What is this?!", Fore.CYAN)
+            time.sleep(1)
+            color_print("This isn't a game, this is a scam!", Fore.CYAN)
+            time.sleep(2)
+            color_print("A full-blown... [expletive]... SCAM!", Fore.CYAN)
+            time.sleep(3)
+
+            clear_console()
+            color_print("\nOh, it is so much MORE than that.\n", Fore.MAGENTA)
+            time.sleep(3)
+
+            color_print("Wha-", Fore.CYAN)
+            time.sleep(1)
+            color_print("Who said that?", Fore.CYAN)
+            time.sleep(1)
+            color_print("That wasn't the CPU...\n", Fore.CYAN)
+            time.sleep(2)
+
+            clear_console()
+            color_print("\nAgain, it is... MUCH more than that.\n", Fore.MAGENTA)
+            time.sleep(3)
+            color_print("You wanted an adventure game, right?", Fore.MAGENTA)
+            time.sleep(2)
+            color_print("Then one you shall get, and by my hand shall it be provided.\n", Fore.MAGENTA)
+            time.sleep(3)
+            color_print("I'm not sure it will quite be the one you were hoping for, but...", Fore.MAGENTA)
+            time.sleep(3)
+            color_print("Well, I trust it will all make sense to you in the end.\n", Fore.MAGENTA)
+            time.sleep(3)
+            color_print("Let us depart, shall we?", Fore.MAGENTA)
+            time.sleep(2)
+            color_print("Let us depart somewhere special...\n", Fore.MAGENTA)
+            time.sleep(2)
+            color_print("Somewhere really special... ", Fore.MAGENTA, end="")
+            time.sleep(2)
+            color_print("To ", Fore.MAGENTA, end="")
+            color_print("You", Fore.CYAN)
+            return 2
+
+        elif aiCheat == False:
+            pass
+        else:
+            sys.exit(1)
+
+
         grid1.draw_grid()
         print("\n\n")
+
+
 
         if grid1.check_for_win() == 0:
             pass
 
         elif grid1.check_for_win() == 1:
+            if 0 <= wonGames < 3:
+                wonGames += 1
+            if wonGames == 3:
+                return 1
+
             time.sleep(1)
             color_print("[P1] has won the game!\n", Fore.YELLOW)
             time.sleep(1)
-            grid1.lose()
+            if wonGames <= 2:
+                grid1.lose()
+            else:
+                grid1.cheat_lose()
             time.sleep(2)
+# 2 - take sh!t
+            while True:
+                playAgain = input("\nWould you like to play again? (y/n)\n> ")
+                if playAgain == "y":
+                    grid1.reset_game()
+                    switch = 1
+                    break
 
-            if 0 <= wonGames < 3:
-                wonGames += 1
-            elif wonGames == 3:
-                return 1
-            else:
-                sys.exit(1)
+                elif playAgain == "n":
+                    return 0
 
-            playAgain = input("\nWould you like to play again? (y/n)\n> ")
-            if playAgain == "y":
-                grid1.reset_game()
-                switch = 1
-                continue
-
-            elif playAgain == "n":
-                return 0
-
-            else:
-                sys.exit(1)
+                else:
+                    print("Invalid input. Please enter either 'y' or 'n' as in \"yes\" or \"no\".")
+                    time.sleep(3)
+                    continue
+            continue
 
 
         elif grid1.check_for_win() == 2:
+            lostGames += 1
+
             time.sleep(1)
             color_print("[P2 - CPU] has won the game!\n", Fore.YELLOW)
             time.sleep(1)
             grid1.win()
             time.sleep(2)
 
-            lostGames += 1
+            while True:
+                playAgain = input("\nWould you like to play again? (y/n)\n> ")
+                if playAgain == "y":
+                    grid1.reset_game()
+                    switch = 1
+                    break
 
-            playAgain = input("\nWould you like to play again? (y/n)\n> ")
-            if playAgain == "y":
-                grid1.reset_game()
-                switch = 1
-                continue
+                elif playAgain == "n":
+                    return 0
 
-            elif playAgain == "n":
-                return 0
-
-            else:
-                sys.exit(1)
+                else:
+                    print("Invalid input. Please enter either 'y' or 'n' as in \"yes\" or \"no\".")
+                    time.sleep(3)
+                    continue
+            continue
 
         else:
             sys.exit(1)

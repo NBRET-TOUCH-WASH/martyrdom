@@ -70,22 +70,31 @@ while True:
     mainMenu1.print_menu()
     userChoice = mainMenu1.select_option()
 
-    if userChoice == 1:#! DEBUG ; DISABLE AFTER TESTING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        ticTacToe.play_tic_tac_toe(grid1, grid1.states.values())
-    #if userChoice == 1:
-    #    display.clear_console()
-    #    intro.play_intro1()
-    #    display.clear_console()
-    #    intro.play_intro2()
-    #    display.clear_console()
-    #    intro.play_intro3()
-    #    ticTacToe.play_tic_tac_toe(grid1, grid1.states.values())
+    if userChoice == 1:
+        if int(input("debug? > ")) == 177013:
+            ticTacToeEvent = ticTacToe.play_tic_tac_toe(grid1, False, True)
+        else:#! DEBUG!! SET BACK TO NORMAL AFTER TESTING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            display.clear_console()
+            intro.play_intro1()
+            display.clear_console()
+            intro.play_intro2()
+            display.clear_console()
+            intro.play_intro3()
+            ticTacToeEvent = ticTacToe.play_tic_tac_toe(grid1, False, False)
+
+        if ticTacToeEvent == 1:
+            grid1.announce_cheat()
+            grid1.reset_game()
+            ticTacToeEvent = ticTacToe.play_tic_tac_toe(grid1, True, False)
+
+            #§ TBA: COLOSSAL CAVE SGEMENT
+
 
     elif userChoice == 2:
         display.clear_console()
         about1.print_about_section()
         input("(Press [RETURN] to go back...) > ")
-    
+# 1- open lid
     elif userChoice == 3:
         display.clear_console()
         settings1.print_settings_section()
