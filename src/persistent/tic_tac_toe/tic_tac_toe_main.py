@@ -19,7 +19,7 @@ import sys
 import random
 import time
 
-import lib.grid as grid
+#import lib.grid as grid
 import lib.display as display
 import lib.colorPrint as colorPrint
 
@@ -34,8 +34,8 @@ import lib.colorPrint as colorPrint
 
 
 #script
-def play_tic_tac_toe():
-    grid1 = grid.Grid()
+def play_tic_tac_toe(grid1):
+    #grid1 = grid.Grid()
 
     switch = 1
     wonGames = 0
