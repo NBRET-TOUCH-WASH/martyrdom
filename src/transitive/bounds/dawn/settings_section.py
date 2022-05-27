@@ -35,14 +35,14 @@ class SettingsSection():
 \t\t\t\tBut game not good.
 
 
-\t\t~ Kirillian, "This is literally the worst. Game. Ever.", 2021
+\t~ based on Kirillian's "This is literally the worst. Game. Ever.", 2021
 """
 
 
     def print_settings_section(self):
         color_print(self.header, Fore.RED)
         print("")
-        color_print(self.body, Fore.LIGHTYELLOW_EX)
+        color_print(self.body + '\n\n', Fore.LIGHTYELLOW_EX)
 
 
 

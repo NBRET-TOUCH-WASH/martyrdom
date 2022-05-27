@@ -4,7 +4,18 @@
 import random
 import time
 
-import lib.colorPrint as colorPrint
+#? colorama lib setup
+from colorama import init, Fore, Back, Style
+init()
+
+FORES = [Fore.BLACK, Fore.RED, Fore.GREEN, Fore.YELLOW, Fore.BLUE, Fore.MAGENTA, Fore.CYAN, Fore.WHITE]
+BACKS = [Back.BLACK, Back.RED, Back.GREEN, Back.YELLOW, Back.BLUE, Back.MAGENTA, Back.CYAN, Back.WHITE]
+BRIGHTNESS = [Style.DIM, Style.NORMAL, Style.BRIGHT]
+
+def color_print(s, color = Fore.WHITE, brightness = Style.NORMAL, **kwargs):
+    """Utility function wrapping the regular `print()` function
+    but with colors and brightness"""
+    print(f"{brightness}{color}{s}{Style.RESET_ALL}", **kwargs)
 
 
 
@@ -75,11 +86,11 @@ class Grid:
 
     def lose(self):
         """ reacts to losing """
-        colorPrint.color_print("[P2 - CPU]: " + self.lossReactions[random.randint(0,6)], colorPrint.Fore.RED)
+        color_print("[P2 - CPU]: " + self.lossReactions[random.randint(0,6)], Fore.RED)
 
     def win(self):
         """ reacts to winning """
-        colorPrint.color_print("[P2 - CPU]: " + self.winReactions[random.randint(0,6)], colorPrint.Fore.RED)
+        color_print("[P2 - CPU]: " + self.winReactions[random.randint(0,6)], Fore.RED)
 
 
     def reset_game(self):
@@ -97,13 +108,13 @@ class Grid:
 
             for x in range(0, self.rows, 1):
                 if self.states[(x,y)] == 0:
-                    colorPrint.color_print("-", colorPrint.Fore.GREEN, end="")
+                    color_print("-", Fore.GREEN, end="")
 
                 elif self.states[(x,y)] == 1:
-                    colorPrint.color_print("X", colorPrint.Fore.CYAN, end="")
+                    color_print("X", Fore.CYAN, end="")
 
                 elif self.states[(x,y)] == 2:
-                    colorPrint.color_print("O", colorPrint.Fore.RED, end="")
+                    color_print("O", Fore.RED, end="")
                 print("|", end="")
 
 

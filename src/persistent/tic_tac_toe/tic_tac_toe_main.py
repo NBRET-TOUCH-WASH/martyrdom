@@ -15,13 +15,34 @@
 
 
 #modules
+import os
 import sys
 import random
 import time
 
 #import lib.grid as grid
-import lib.display as display
-import lib.colorPrint as colorPrint
+
+#import lib.display as display
+def clear_console():
+    """ clears the current console output """
+
+    command = 'clear'
+    if os.name in ('nt', 'dos'):  # If Machine is running on Windows, use cls
+        command = 'cls'
+    os.system(command)
+
+#? colorama lib setup
+from colorama import init, Fore, Back, Style
+init()
+
+FORES = [Fore.BLACK, Fore.RED, Fore.GREEN, Fore.YELLOW, Fore.BLUE, Fore.MAGENTA, Fore.CYAN, Fore.WHITE]
+BACKS = [Back.BLACK, Back.RED, Back.GREEN, Back.YELLOW, Back.BLUE, Back.MAGENTA, Back.CYAN, Back.WHITE]
+BRIGHTNESS = [Style.DIM, Style.NORMAL, Style.BRIGHT]
+
+def color_print(s, color = Fore.WHITE, brightness = Style.NORMAL, **kwargs):
+    """Utility function wrapping the regular `print()` function
+    but with colors and brightness"""
+    print(f"{brightness}{color}{s}{Style.RESET_ALL}", **kwargs)
 
 
 
@@ -43,7 +64,7 @@ def play_tic_tac_toe(grid1):
 
 
     while True:
-        display.clear_console()
+        clear_console()
         grid1.draw_grid()
         print("\n\n")
 
@@ -52,7 +73,7 @@ def play_tic_tac_toe(grid1):
 
         elif grid1.check_for_win() == 1:
             time.sleep(1)
-            colorPrint.color_print("[P1] has won the game!\n", colorPrint.Fore.YELLOW)
+            color_print("[P1] has won the game!\n", Fore.YELLOW)
             time.sleep(1)
             grid1.lose()
             time.sleep(2)
@@ -79,7 +100,7 @@ def play_tic_tac_toe(grid1):
 
         elif grid1.check_for_win() == 2:
             time.sleep(1)
-            colorPrint.color_print("[P2 - CPU] has won the game!\n", colorPrint.Fore.YELLOW)
+            color_print("[P2 - CPU] has won the game!\n", Fore.YELLOW)
             time.sleep(1)
             grid1.win()
             time.sleep(2)
@@ -102,7 +123,7 @@ def play_tic_tac_toe(grid1):
             gameBegun = True
 
             time.sleep(1)
-            colorPrint.color_print("[P1], it is now your turn to play.\n", colorPrint.Fore.CYAN, colorPrint.Style.NORMAL)
+            color_print("[P1], it is now your turn to play.\n", Fore.CYAN, Style.NORMAL)
             time.sleep(1)
 
             while True:
@@ -130,7 +151,7 @@ def play_tic_tac_toe(grid1):
 
             if grid1.states[(inputY,inputX)] != 1:
                 grid1.states[(inputY,inputX)] = 1
-                display.clear_console()
+                clear_console()
                 continue
             else:
                 pass
@@ -142,7 +163,7 @@ def play_tic_tac_toe(grid1):
             gameBegun = True
 
             time.sleep(1)
-            colorPrint.color_print("It is now [P2 - CPU]'s turn to play.\n", colorPrint.Fore.RED, colorPrint.Style.NORMAL)
+            color_print("It is now [P2 - CPU]'s turn to play.\n", Fore.RED, Style.NORMAL)
             time.sleep(1)
             print("[P2 - CPU] is thinking...\n") #lmao it actually isn't :^)
 
@@ -155,4 +176,4 @@ def play_tic_tac_toe(grid1):
         else:
             sys.exit(1)
 
-play_tic_tac_toe()
+#play_tic_tac_toe()

@@ -49,7 +49,7 @@ Enjoy!
         print(self.credits)
         print('\t' * 2, '- ' * 10, '\n\n')
 
-        print(self.body)
+        print(self.body + '\n\n')
 
 
 #functions

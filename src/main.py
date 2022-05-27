@@ -1,7 +1,7 @@
 #coding:utf-8
 
 #modules
-""" to anyone reading through this import section:
+"""
 *************************************************************
 *                                                           *
 *   .=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-.      *
@@ -22,7 +22,7 @@
 *   |                                                |      *
 *   '-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-='      *
 *                                                           *
-*           OGNI SPERANZA, VOI CH'ENTRATE                   *
+*         LASCIATE OGNI SPERANZA, VOI CH'ENTRATE            *
 *************************************************************
 """
 #standard libs
@@ -38,6 +38,7 @@ import transitive.bounds.dawn.settings_section as settings
 import transitive.bounds.dawn.blessings.mainMenu_asciiArt as asciiArt
 
 #tic-tac-toe
+import persistent.tic_tac_toe.intro as intro
 import persistent.tic_tac_toe.tic_tac_toe_main as ticTacToe
 import persistent.tic_tac_toe.lib.grid as grid
 
@@ -71,19 +72,25 @@ while True:
 
     if userChoice == 1:
         display.clear_console()
+        intro.play_intro1()
+        display.clear_console()
+        intro.play_intro2()
+        display.clear_console()
+        intro.play_intro3()
         ticTacToe.play_tic_tac_toe(grid1)
 
     elif userChoice == 2:
         display.clear_console()
         about1.print_about_section()
-        flowBreak = input("Press [RETURN] to go back... > ")
+        input("(Press [RETURN] to go back...) > ")
     
     elif userChoice == 3:
         display.clear_console()
         settings1.print_settings_section()
-        flowBreak = input("Press [RETURN] to go back... > ")
+        input("(Press [RETURN] to go back...) > ")
 
     elif userChoice == 4:
+        display.clear_console()
         sys.exit(0)
 
     elif userChoice == -1:
