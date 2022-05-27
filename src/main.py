@@ -70,6 +70,8 @@ while True:
     mainMenu1.print_menu()
     userChoice = mainMenu1.select_option()
 
+    #if userChoice == 1:#! DEBUG ; DISABLE AFTER TESTING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    #    ticTacToe.play_tic_tac_toe(grid1)
     if userChoice == 1:
         display.clear_console()
         intro.play_intro1()
