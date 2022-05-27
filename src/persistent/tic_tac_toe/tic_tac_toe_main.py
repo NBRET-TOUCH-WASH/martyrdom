@@ -13,6 +13,10 @@
 
 """
 
+#TOFIX: PROGRAM CAN'T TELL WHEN A GAME IS A DRAW!!!!!!!!!!!!!!!!
+#TOFIX: P1 CAN DRAW OVER AN OPPONENT-OWNED CELL!!!!!!!!!!!!!!!!!
+
+
 
 #modules
 import os
@@ -91,8 +95,8 @@ def play_tic_tac_toe(grid1):
         grid1.draw_grid()
         print("\n\n")
 
-        if grid1.check_for_win() == 0:  #TOFIX: PROGRAM CAN'T TELL WHEN A GAME IS A DRAW!!!!!!!!!!!!!!!!
-            pass                        #TOFIX: P1 CAN DRAW OVER AN OPPONENT-OWNED CELL!!!!!!!!!!!!!!!!!
+        if grid1.check_for_win() == 0:
+            pass
 
         elif grid1.check_for_win() == 1:
             time.sleep(1)
@@ -105,6 +109,8 @@ def play_tic_tac_toe(grid1):
                 wonGames += 1
             elif wonGames == 3:
                 return 1
+            else:
+                sys.exit(1)
 
             playAgain = input("\nWould you like to play again? (y/n)\n> ")
             if playAgain == "y":
