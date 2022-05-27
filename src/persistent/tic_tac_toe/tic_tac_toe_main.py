@@ -60,16 +60,39 @@ def play_tic_tac_toe(grid1):
 
     switch = 1
     wonGames = 0
+    lostGames = 0
     playAgain = None
 
 
     while True:
         clear_console()
+
+
+        #print('\n')
+        print('\n' + '+ ' + '='*45 + ' +' + '\n')
+
+        print("Currently playing\t:\t", end="")
+        if switch == 1:
+            color_print("[P1]\n", Fore.CYAN)
+        elif switch == -1:
+            color_print("[P2 - CPU]\n", Fore.RED)
+
+        color_print("[P1]", Fore.CYAN, end="")
+        print(" victories\t\t:\t", end="")
+        color_print(wonGames, Fore.CYAN)
+
+        color_print("[P2 - CPU]", Fore.RED, end="")
+        print(" victories\t:\t", end="")
+        color_print(lostGames, Fore.RED)
+
+        print('\n' + '+ ' + '='*45 + ' +' + '\n\n')
+
+
         grid1.draw_grid()
         print("\n\n")
 
-        if grid1.check_for_win() == 0: #TOFIX: PROGRAM CAN'T TELL WHEN A GAME IS A DRAW!!!!!!!!!!!!!!!!!
-            pass
+        if grid1.check_for_win() == 0:  #TOFIX: PROGRAM CAN'T TELL WHEN A GAME IS A DRAW!!!!!!!!!!!!!!!!
+            pass                        #TOFIX: P1 CAN DRAW OVER AN OPPONENT-OWNED CELL!!!!!!!!!!!!!!!!!
 
         elif grid1.check_for_win() == 1:
             time.sleep(1)
@@ -78,7 +101,6 @@ def play_tic_tac_toe(grid1):
             grid1.lose()
             time.sleep(2)
 
-            wonGames += 1
             if 0 <= wonGames < 3:
                 wonGames += 1
             elif wonGames == 3:
@@ -87,7 +109,6 @@ def play_tic_tac_toe(grid1):
             playAgain = input("\nWould you like to play again? (y/n)\n> ")
             if playAgain == "y":
                 grid1.reset_game()
-
                 switch = 1
                 continue
 
@@ -105,15 +126,19 @@ def play_tic_tac_toe(grid1):
             grid1.win()
             time.sleep(2)
 
+            lostGames += 1
+
             playAgain = input("\nWould you like to play again? (y/n)\n> ")
             if playAgain == "y":
-                pass
+                grid1.reset_game()
+                switch = 1
+                continue
+
             elif playAgain == "n":
                 return 0
+
             else:
                 sys.exit(1)
-
-            grid1.reset_game()
 
         else:
             sys.exit(1)
@@ -175,5 +200,3 @@ def play_tic_tac_toe(grid1):
 
         else:
             sys.exit(1)
-
-#play_tic_tac_toe()
