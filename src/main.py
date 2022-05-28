@@ -42,6 +42,9 @@ import persistent.tic_tac_toe.intro as intro
 import persistent.tic_tac_toe.tic_tac_toe_main as ticTacToe
 import persistent.tic_tac_toe.lib.grid as grid
 
+#colossal cave adventure
+#import persistent.colossal_cave.colossalCave_main as colossalCave #$ will use when this segment is properly setup
+
 
 
 #classes
@@ -60,6 +63,9 @@ settings1 = settings.SettingsSection(asciiArt.settingsHeader)
 
 #tic-tac-toe
 grid1 = grid.Grid()
+
+#colossal cave adventure
+
 
 
 
@@ -87,6 +93,7 @@ while True:
             grid1.reset_game()
             ticTacToeEvent = ticTacToe.play_tic_tac_toe(grid1, True, False)
 
+            display.clear_console()
             #§ TBA: COLOSSAL CAVE SGEMENT
 
 
