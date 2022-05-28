@@ -1,0 +1,25 @@
+Tic-Tac-Toe:
+==================== +
+
+
+
+Colossal Cave Adventure-like:
+==================== +
+
+strings:
+    - LOOK
+        - pitch black void ; outside/house entrance
+            => LOOK BEHIND
+                - You look behind yourself. While as expected, a road crosses your eye's path, an
+                infinite black void you'll never fully make out stretches and stirs from across the
+                street.
+                As you blink, text flashes before your pupils as if painlessly carved into your eyelids with
+                light, it reads:
+                "Do not stare into the abbyss too long, for it too, will stare back."
+    - GET
+    - TALK
+
+
+
+Roguelike [SCRAPPED]:
+==================== +
