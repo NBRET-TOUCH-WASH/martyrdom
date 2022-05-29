@@ -1,0 +1,12 @@
+ideas to implement in the long run
+=================================== +
+
+- the j-man comes to get the player to stop some old eldritch gods in some weird matrix-like reality
+    - by using snails and slugs
+        <- plug in of my old abandonned visual novel/multimedium idea
+            -!-> see `dotSnail_ideas.md`
+            - why not actually complete a visual novel this time?
+                -!-> keep the three layers of "you
+                    - "you" = "The player's character"
+                    - "You" = "The Player itself"
+                    - "YOU" = "The Player IRL, stylized as ’PLAYER’"
