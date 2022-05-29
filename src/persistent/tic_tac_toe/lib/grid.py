@@ -1,6 +1,7 @@
 #coding:utf-8
 
 #modules
+from ast import For
 import random
 import time
 
@@ -82,11 +83,27 @@ class Grid:
                 continue
             else:
                 continue
+# 3 - close lid
+    def announce_cheat(self):
+        """ lore-related function: cheats against the player and moves the "story" forward"""
+        color_print("Gah! That's the last straw!", Fore.RED)
+        time.sleep(2)
+        color_print("You think you're so good at this?", Fore.RED)
+        time.sleep(2)
+        color_print("Then what do you think of this, huh?!", Fore.RED)
+        time.sleep(2)
+
+    def cheat(self):
+        for s in self.states:
+            self.states[s] = 2
 
 
     def lose(self):
         """ reacts to losing """
         color_print("[P2 - CPU]: " + self.lossReactions[random.randint(0,6)], Fore.RED)
+    def cheat_lose(self):
+        """ angrily reacts to losing before cheating """
+        color_print("[P2 - CPU]: How?!", Fore.RED)
 
     def win(self):
         """ reacts to winning """
