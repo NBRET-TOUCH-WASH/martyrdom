@@ -1,81 +1,122 @@
 #coding:utf-8
 
+
+
+"""
+[X] ============================================================ [X]
+ |                                                                |
+ |                ABANDONNED TO THE MISTS OF TIME!                |
+ |                                                                |
+[X] ============================================================ [X]
+"""
+
+
+
 #modules
-#import lib.location as location
+import os
+import time
+
+#? colorama lib setup
+from colorama import init, Fore, Back, Style
+init()
+
+FORES = [Fore.BLACK, Fore.RED, Fore.GREEN, Fore.YELLOW, Fore.BLUE, Fore.MAGENTA, Fore.CYAN, Fore.WHITE]
+BACKS = [Back.BLACK, Back.RED, Back.GREEN, Back.YELLOW, Back.BLUE, Back.MAGENTA, Back.CYAN, Back.WHITE]
+BRIGHTNESS = [Style.DIM, Style.NORMAL, Style.BRIGHT]
+
+def color_print(s, color = Fore.WHITE, brightness = Style.NORMAL, **kwargs):
+    """Utility function wrapping the regular `print()` function
+    but with colors and brightness"""
+    print(f"{brightness}{color}{s}{Style.RESET_ALL}", **kwargs)
 
 
 
 #classes
 class Element:
-    """ class for any and all interactible elements """
+    """ base unit for in-game objects """
 
-    def __init__(self, name, shortDesc) -> None:
-        #str
+    def __init__(self, name, details) -> None:
         self.name = name
-        self.shortDesc = shortDesc #e.g. "A small yellowed out lamp." ; "A large snow-covered wood cabin"...
+        #? description used when the object is looked at by the player
+        self.details = details
+
 
 
 class Player(Element):
-    """ class for the player, mainly used when the player interacts with themselves """
+    """ class for the player """
 
-    def __init__(self, name, shortDesc, currentLocation, inventory, playerMood) -> None:
-        super().__init__(name, shortDesc)
+    def __init__(self, name, details, currentLoc) -> None:
+        super().__init__(name, details)
 
-        #str ~ Location.name
-        self.currentLocation = currentLocation
+        #Room class
+        self.currentLoc = currentLoc
 
-        #dict
-        self.inventory = inventory      #e.g. "A pen", "A hat", "A key", "A crowbar"...
-
-        #str
-        self.mood = playerMood          #e.g. "Distressed" ; "Relieved" ; "Terrified" ; "Joyful"...
+        #list
+        #§ TBA
+        #self.inventory = inventory
 
 
-class Location(Element):
-    """ class for locations, places, area, etc """
+    def analyze_input(self, playerInput):
+        """ analyzes the player's input and selects a corresponding action """
 
-    def __init__(self, name, shortDesc, rooms, areaMood) -> None:
-        super().__init__(name, shortDesc)
-
-        #dict
-        self.rooms = rooms
-        """
-            #WHYNOT: idk about this one since it's supposed to be a text-based segment.... :/
-            self.areaMap = areaMap #ascii map
-        """
-
-        #str
-        self.areaMood = areaMood #e.g. "spooky" ; "serene" ; "cozy" ; "hellish"...
-
-class Room(Location):
-    """ class for specific rooms inside of Locations """
-
-    def __init__(self, name, shortDesc, rooms, areaMood, roomObjects, roomActions) -> None:
-        #? the `rooms` parameter will be a single-entry dict
-        super().__init__(name, shortDesc, rooms, areaMood)
-
-        #dict
-        self.objects = roomObjects      #e.g. "A lamp", "A key", "A window"...
-        self.roomActions = roomActions  #e.g. "Open window", "Get key", "Read book"...
+        if "GO" in playerInput:
+            playerInput = playerInput.split()
+            for w in range(0,len(playerInput)-1,1):
+                if playerInput[w] == "GO" and playerInput[w+1] == "TO":
+                    self.go_to(self.currentLoc,playerInput[w+2])
 
 
-#? unused for now as it serves no purposes other than that of the `Element` class
-#class Item(Element):
-#    """ class for items """
-#
-#    def __init__(self, name, shortDesc) -> None:
-#        super().__init__(name, shortDesc)
+    def go_to(self, currentLoc, destination):
+        """ allows the player to move from one room to another """
+
+        if destination in currentLoc.neighborRooms:
+            currentLoc = destination
+        else:
+            pass
+
+        return currentLoc
+
+    def look_at(self):
+        """ allows the player to look at specific elements, offering more details """
+        pass
+
+    def get_item(self):
+        """ allows the player to get a specific item """
+        pass 
+
+
+
+class Room(Element):
+    """ class for all places the player can go to """
+
+    def __init__(self, name, details, *neighborRooms) -> None:
+        super().__init__(name, details)
+
+        self.neighborRooms = neighborRooms
+
+        #self.roomItems = roomItems
+        #self.roomActions = roomActions
 
 
 
 #functions
-def play_colossal_cave():
-    pass
 
 
 
 #variables
+testRoom1 = Room("Room1",
+                "first room",
+                ("room2"))
+
+testRoom2 = Room("Room2",
+                "second room",
+                ("room1"))
+
+player1 = Player("Avery Doe","Average player.","room1")
 
 
 
 #script
+playerInput = input("What to do?\n> ").upper()
+player1.analyze_input(playerInput)
+input()

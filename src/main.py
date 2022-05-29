@@ -43,7 +43,9 @@ import persistent.tic_tac_toe.tic_tac_toe_main as ticTacToe
 import persistent.tic_tac_toe.lib.grid as grid
 
 #colossal cave adventure
-#import persistent.colossal_cave.colossalCave_main as colossalCave #$ will use when this segment is properly setup
+import persistent.colossal_cave.intro as colCaveIntro
+#import persistent.colossal_cave.colossalCave_main as colossalCave #$ will reuse once i switch to OOP
+import persistent.colossal_cave.colCave as colCave
 
 
 
@@ -77,24 +79,35 @@ while True:
     userChoice = mainMenu1.select_option()
 
     if userChoice == 1:
-        if int(input("debug? > ")) == 177013:
-            ticTacToeEvent = ticTacToe.play_tic_tac_toe(grid1, False, True)
-        else:#! DEBUG!! SET BACK TO NORMAL AFTER TESTING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            display.clear_console()
-            intro.play_intro1()
-            display.clear_console()
-            intro.play_intro2()
-            display.clear_console()
-            intro.play_intro3()
-            ticTacToeEvent = ticTacToe.play_tic_tac_toe(grid1, False, False)
+        #if int(input("debug? > ")) == 177013:
+        #    ticTacToeEvent = ticTacToe.play_tic_tac_toe(grid1, False, True)
+        #else:#! DEBUG!! SET BACK TO NORMAL AFTER TESTING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        #    display.clear_console()
+        #    intro.play_intro1()
+        #    display.clear_console()
+        #    intro.play_intro2()
+        #    display.clear_console()
+        #    intro.play_intro3()
+        #    ticTacToeEvent = ticTacToe.play_tic_tac_toe(grid1, False, False)
+        display.clear_console()
+        intro.play_intro1()
+        display.clear_console()
+        intro.play_intro2()
+        display.clear_console()
+        intro.play_intro3()
+        ticTacToeEvent = ticTacToe.play_tic_tac_toe(grid1, False)
 
         if ticTacToeEvent == 1:
             grid1.announce_cheat()
             grid1.reset_game()
-            ticTacToeEvent = ticTacToe.play_tic_tac_toe(grid1, True, False)
+            ticTacToeEvent = ticTacToe.play_tic_tac_toe(grid1, True)
 
             display.clear_console()
-            #§ TBA: COLOSSAL CAVE SGEMENT
+            colCaveIntro.witness_rapture()
+            colCaveIntro.play_colCave_intro1()
+            colCavePlayerName = input("> ")
+            colCaveIntro.play_colCave_intro2(colCavePlayerName)
+            colCave.play_colCave(colCavePlayerName)
 
 
     elif userChoice == 2:
