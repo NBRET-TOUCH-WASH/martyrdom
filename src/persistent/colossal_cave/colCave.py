@@ -162,6 +162,29 @@ def play_colCave(playerName):
             time.sleep(FASTER)
             continue
 
+        if "RETURN COFFIN" in userInput:
+            time.sleep(1)
+            color_print("\nYet Another conflict", Fore.GREEN)
+            time.sleep(1)
+            color_print("Where communication is dead", Fore.GREEN)
+            time.sleep(1)
+            color_print("Their solution is a bullet to your head", Fore.GREEN)
+            time.sleep(1)
+            color_print("\n[...]", Fore.GREEN)
+            time.sleep(1)
+            color_print("\nYou're a coffin returned hero", Fore.GREEN)
+            time.sleep(1)
+            color_print("But you've died for nothing.", Fore.GREEN)
+            time.sleep(1)
+            color_print("\n[...]", Fore.GREEN)
+            time.sleep(1)
+            color_print("\nDie for nothing", Fore.GREEN)
+            time.sleep(1)
+            color_print("Like all those before", Fore.GREEN)
+            time.sleep(1)
+            color_print("\nScythelord - \"Die for Nothing\", Toxic Minds - track 3; 2016", Fore.GREEN)
+            time.sleep(2)
+
 
     clear_console()
     time.sleep(QUICK)
@@ -183,7 +206,7 @@ def play_colCave(playerName):
     time.sleep(QUICK)
     print("and why the house and its content are but a vast decoy, ")
     time.sleep(FASTER)
-
+#midlertidig
     clear_console()
     time.sleep(QUICK)
     print("\nAnd now it all makes sense.")
