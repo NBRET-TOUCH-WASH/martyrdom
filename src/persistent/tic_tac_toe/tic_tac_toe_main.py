@@ -63,15 +63,16 @@ def color_print(s, color = Fore.WHITE, brightness = Style.NORMAL, **kwargs):
     My code is made out of too much spaghetti…
     … Now I regretti.
 """
-def play_tic_tac_toe(grid1, aiCheat, cheat):
+def play_tic_tac_toe(grid1, aiCheat):#, cheat): <- debug
     #grid1 = grid.Grid()
 
     switch = 1
 
-    if cheat == True:#!!!!DEBUG!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        wonGames = 2
-    else:
-        wonGames = 0
+    #if cheat == True:#!!!!DEBUG!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    #    wonGames = 2
+    #else:
+    #    wonGames = 0
+    wonGames = 0
 
     lostGames = 0
     playAgain = None
@@ -105,17 +106,17 @@ def play_tic_tac_toe(grid1, aiCheat, cheat):
             clear_console()
             print('\n' + '+ ' + '='*45 + ' +' + '\n')
 
-            print("Currently playing\t:\t", end="")
+            print("\tCurrently playing\t:\t", end="")
             if switch == 1:
                 color_print("[P1]\n", Fore.CYAN)
             elif switch == -1:
                 color_print("[P2 - CPU]\n", Fore.RED)
 
-            color_print("[P1]", Fore.CYAN, end="")
+            color_print("\t[P1]", Fore.CYAN, end="")
             print(" victories\t\t:\t", end="")
             color_print(wonGames, Fore.CYAN)
 
-            color_print("[P2 - CPU]", Fore.RED, end="")
+            color_print("\t[P2 - CPU]", Fore.RED, end="")
             print(" victories\t:\t", end="")
             color_print(lostGames, Fore.RED)
 

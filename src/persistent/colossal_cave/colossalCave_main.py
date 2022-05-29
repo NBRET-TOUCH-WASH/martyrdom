@@ -1,5 +1,17 @@
 #coding:utf-8
 
+
+
+"""
+[X] ============================================================ [X]
+ |                                                                |
+ |                ABANDONNED TO THE MISTS OF TIME!                |
+ |                                                                |
+[X] ============================================================ [X]
+"""
+
+
+
 #modules
 import os
 import time
@@ -17,150 +29,94 @@ def color_print(s, color = Fore.WHITE, brightness = Style.NORMAL, **kwargs):
     but with colors and brightness"""
     print(f"{brightness}{color}{s}{Style.RESET_ALL}", **kwargs)
 
-#import lib.location as location
 
 
-
-#classes rebirth
+#classes
 class Element:
-    """ class for any and all elements """
+    """ base unit for in-game objects """
 
-    def __init__(self, name, shortDesc) -> None:
+    def __init__(self, name, details) -> None:
         self.name = name
-        self.shortDesc = shortDesc
-
-
-
-class Location(Element):
-    """ class for locations/areas... """
-
-    def __init__(self, name, shortDesc, areaMood, **rooms) -> None:
-        super().__init__(name, shortDesc)
-
-        self.areaMood = areaMood
-        self.rooms = rooms
-
-class Room(Element):
-    """ class for specific rooms """
-
-    def __init__(self, name, shortDesc, roomMood, roomObjects, roomActions) -> None:
-        super().__init__(name, shortDesc)
-
-        self.roomMood = roomMood
-
-        self.roomObjects = roomObjects
-        self.roomActions = roomActions
+        #? description used when the object is looked at by the player
+        self.details = details
 
 
 
 class Player(Element):
     """ class for the player """
 
-    def __init__(self, name, shortDesc, playerMood, currentRoom, **inventory) -> None:
-        super().__init__(name, shortDesc)
+    def __init__(self, name, details, currentLoc) -> None:
+        super().__init__(name, details)
 
-        self.playerMood = playerMood
-        self.currentRoom = currentRoom
-        self.inventory = inventory
+        #Room class
+        self.currentLoc = currentLoc
+
+        #list
+        #§ TBA
+        #self.inventory = inventory
+
+
+    def analyze_input(self, playerInput):
+        """ analyzes the player's input and selects a corresponding action """
+
+        if "GO" in playerInput:
+            playerInput = playerInput.split()
+            for w in range(0,len(playerInput)-1,1):
+                if playerInput[w] == "GO" and playerInput[w+1] == "TO":
+                    self.go_to(self.currentLoc,playerInput[w+2])
+
+
+    def go_to(self, currentLoc, destination):
+        """ allows the player to move from one room to another """
+
+        if destination in currentLoc.neighborRooms:
+            currentLoc = destination
+        else:
+            pass
+
+        return currentLoc
+
+    def look_at(self):
+        """ allows the player to look at specific elements, offering more details """
+        pass
+
+    def get_item(self):
+        """ allows the player to get a specific item """
+        pass 
 
 
 
-#? unused for now as it serves no purposes other than that of the `Element` class
-#class Item(Element):
-#    """ class for items """
-#
-#    def __init__(self, name, shortDesc) -> None:
-#        super().__init__(name, shortDesc)
+class Room(Element):
+    """ class for all places the player can go to """
+
+    def __init__(self, name, details, *neighborRooms) -> None:
+        super().__init__(name, details)
+
+        self.neighborRooms = neighborRooms
+
+        #self.roomItems = roomItems
+        #self.roomActions = roomActions
 
 
 
 #functions
-def clear_console():
-    """ clears the current console output """
-
-    command = 'clear'
-    if os.name in ('nt', 'dos'):  # If Machine is running on Windows, use cls
-        command = 'cls'
-    os.system(command)
-
-
-
-def play_colossal_cave():
-    clear_console()
-    time.sleep(1)
-    print(R"""
-       .                                                                        
-     ..:::...                                                                   
-     .:.::^:......                                                              
-     .....:^^:::::..                                                            
-    .    ...:::^^!::..                                                          
-            ...:^!^::..                                                         
-              ..::^!~::...                                                      
-               ..::^7!^^::...                                                   
-                ..:^~??!!~^::..                                                 
-                ..:^!~~~~!77~::..                                               
-                ..::~~:::^^~?!^::..                                             
-              ...:^^^:....::^!77!^:..                                           
-             ...:^:....   ..::^~?7^:..                                          
-          ....:::...        .::^!J^^:.                                          
-        ...:::...            .:^~J~^:..                                         
-         .....              ..:^~7J^^:.                                         
-          ..               .:^~~!JY~~^:..                                       
-          .              ..:^~?YY5PY?!~^^:...                                   
-          .              ..:^7G7777?JYJ7!~^^::.                                 
-                          .::^?^^^~~~!?YYJY?~^^::..       ........              
-                            ........:^^~!775Y!!~~^^^:::::^^^^^^^^:::...         
-                                     ..::^~!Y5YY5Y?7!!!!777?J55J??7~~^:::...    
-                                        ..:^~!?Y5JYY5YY5YYJJ??YPYJJJ?J7!~~^:.   
-                                          .:^~JJ!!!!!!!~~~~~~~~!?Y5J??J??7!^:.  
-                                           .::^7?7~~^^^:::...::^~!?Y55P5J!~^:.  
-                                            ..::^!77!^^:..  ..::^~!7JYYY5J~^:.  
-                                             ..::^^!J?!^::...:^!7777!~~~~~^:.   
-                                           .....:^^!??J~~^::^^?!~^::::::...     
-                                            ..:::^^~7??7~~~~~!J~^::.            
-                                           ...::~^~~7!~77~!!!JJ~^:.             
-                                          ...^^^~^^^^^^~7!!7?Y7~^:.             
-                                         ...:~:::....::^~7?JYY7~~^:.            
-                                       ...::^:.......::^!7777!!~^::.            
-                                       .:::::......::^^~~^~~^^::..              
-                                      .:...:....:^^^^:::::^^...                 
-                                      ..   ..:.:~::.......::.                   
-                                      .     ..::^:...                           
-                                             ..:^:..                            
-                                              .::..                             
-                                                .                               
-""")
-    time.sleep(0.25)
-
-    clear_console()
-    time.sleep(2)
-    print("When you open your eyes for what feels like the first time in about seven months, you notice you've been transported somewhere.")
-    time.sleep(4)
-    print("It is dark, rainy and stormy, making out the shape of the things before you is hard.")
-    time.sleep(3)
-    print("\nAfter a few seconds of effort, you start to combine the few elements your brain can properly process:")
-    time.sleep(4)
-    print("A door, ", end="")
-    time.sleep(1)
-    print("windows, ", end="")
-    time.sleep(1)
-    print("a roof...")
-    time.sleep(2)
-    print("\nYou realize you're standing before a house, the lightnings' glow rapidly printing its image on your retina.")
-    time.sleep(4)
-    print("Ahead of you is a path to enter said house ; behind you, a road, crossing your path left to right from the edges of a street that seemingly stretches into infinity.\n")
-    time.sleep(6)
-
-    while True:
-        userInput = input("What will you do?\n> ")
 
 
 
 #variables
-#! debug
-#debugOffice = Room("Debug Office","Offices for debugging.","Debuggier",["DEBUG MUG","DEBUG TABLE"],["FLIP TABLE","DRINK MUG"])
-#debugDpt = Location("Debug Dpt.","Debug Department","Debuggy",{debugOffice:0,"DEBUG CORRIDOR":1})
+testRoom1 = Room("Room1",
+                "first room",
+                ("room2"))
+
+testRoom2 = Room("Room2",
+                "second room",
+                ("room1"))
+
+player1 = Player("Avery Doe","Average player.","room1")
+
 
 
 #script
-play_colossal_cave()
+playerInput = input("What to do?\n> ").upper()
+player1.analyze_input(playerInput)
+input()

@@ -79,27 +79,35 @@ while True:
     userChoice = mainMenu1.select_option()
 
     if userChoice == 1:
-        if int(input("debug? > ")) == 177013:
-            ticTacToeEvent = ticTacToe.play_tic_tac_toe(grid1, False, True)
-        else:#! DEBUG!! SET BACK TO NORMAL AFTER TESTING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            display.clear_console()
-            intro.play_intro1()
-            display.clear_console()
-            intro.play_intro2()
-            display.clear_console()
-            intro.play_intro3()
-            ticTacToeEvent = ticTacToe.play_tic_tac_toe(grid1, False, False)
+        #if int(input("debug? > ")) == 177013:
+        #    ticTacToeEvent = ticTacToe.play_tic_tac_toe(grid1, False, True)
+        #else:#! DEBUG!! SET BACK TO NORMAL AFTER TESTING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        #    display.clear_console()
+        #    intro.play_intro1()
+        #    display.clear_console()
+        #    intro.play_intro2()
+        #    display.clear_console()
+        #    intro.play_intro3()
+        #    ticTacToeEvent = ticTacToe.play_tic_tac_toe(grid1, False, False)
+        display.clear_console()
+        intro.play_intro1()
+        display.clear_console()
+        intro.play_intro2()
+        display.clear_console()
+        intro.play_intro3()
+        ticTacToeEvent = ticTacToe.play_tic_tac_toe(grid1, False)
 
         if ticTacToeEvent == 1:
             grid1.announce_cheat()
             grid1.reset_game()
-            ticTacToeEvent = ticTacToe.play_tic_tac_toe(grid1, True, False)
+            ticTacToeEvent = ticTacToe.play_tic_tac_toe(grid1, True)
 
             display.clear_console()
             colCaveIntro.witness_rapture()
             colCaveIntro.play_colCave_intro1()
             colCavePlayerName = input("> ")
             colCaveIntro.play_colCave_intro2(colCavePlayerName)
+            colCave.play_colCave(colCavePlayerName)
 
 
     elif userChoice == 2:
