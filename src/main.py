@@ -44,7 +44,8 @@ import persistent.tic_tac_toe.lib.grid as grid
 
 #colossal cave adventure
 import persistent.colossal_cave.intro as colCaveIntro
-import persistent.colossal_cave.colossalCave_main as colossalCave
+#import persistent.colossal_cave.colossalCave_main as colossalCave #$ will reuse once i switch to OOP
+import persistent.colossal_cave.colCave as colCave
 
 
 

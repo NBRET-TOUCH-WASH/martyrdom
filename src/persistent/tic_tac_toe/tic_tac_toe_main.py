@@ -79,27 +79,47 @@ def play_tic_tac_toe(grid1, aiCheat, cheat):
 
     while True:
         clear_console()
-        #print('\n')
-        print('\n' + '+ ' + '='*45 + ' +' + '\n')
+        print('\n' + '+ ' + '='*48 + ' +' + '\n')
 
-        print("Currently playing\t:\t", end="")
+        print("\tCurrently playing\t:\t", end="")
         if switch == 1:
             color_print("[P1]\n", Fore.CYAN)
         elif switch == -1:
             color_print("[P2 - CPU]\n", Fore.RED)
 
-        color_print("[P1]", Fore.CYAN, end="")
+        color_print("\t[P1]", Fore.CYAN, end="")
         print(" victories\t\t:\t", end="")
         color_print(wonGames, Fore.CYAN)
 
-        color_print("[P2 - CPU]", Fore.RED, end="")
+        color_print("\t[P2 - CPU]", Fore.RED, end="")
         print(" victories\t:\t", end="")
         color_print(lostGames, Fore.RED)
 
-        print('\n' + '+ ' + '='*45 + ' +' + '\n\n')
+        print('\n' + '+ ' + '='*48 + ' +' + '\n\n')
 
 
         if aiCheat == True:
+            switch = -1
+            #max int size: 2147483647
+            lostGames += 999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
+            clear_console()
+            print('\n' + '+ ' + '='*45 + ' +' + '\n')
+
+            print("Currently playing\t:\t", end="")
+            if switch == 1:
+                color_print("[P1]\n", Fore.CYAN)
+            elif switch == -1:
+                color_print("[P2 - CPU]\n", Fore.RED)
+
+            color_print("[P1]", Fore.CYAN, end="")
+            print(" victories\t\t:\t", end="")
+            color_print(wonGames, Fore.CYAN)
+
+            color_print("[P2 - CPU]", Fore.RED, end="")
+            print(" victories\t:\t", end="")
+            color_print(lostGames, Fore.RED)
+
+            print('\n' + '+ ' + '='*45 + ' +' + '\n\n')
             grid1.cheat() #pretty hacky solution but hey if it works lol
             grid1.draw_grid()
             print("\n\n")
@@ -154,7 +174,13 @@ def play_tic_tac_toe(grid1, aiCheat, cheat):
             color_print("Somewhere really special... ", Fore.MAGENTA, end="")
             time.sleep(2)
             color_print("To ", Fore.MAGENTA, end="")
-            color_print("You", Fore.CYAN)
+            color_print("You", Fore.CYAN, end="")
+            color_print(".", Fore.MAGENTA)
+            time.sleep(0.17)
+
+            #not sure this helps but it might help to relieve the memory so idk
+            lostGames = 0
+
             return 2
 
         elif aiCheat == False:
