@@ -61,7 +61,7 @@ def witness_rapture():
         clear_console()
 
 
-def play_coloCave_intro1():
+def play_colCave_intro1():
     """ plays the "colossal cave adventure"-like-related intro """
 
     #$ for an easier-access copy-paste
@@ -75,7 +75,7 @@ def play_coloCave_intro1():
     #player inputs their name
 
 
-def play_coloCave_intro2(playerName):
+def play_colCave_intro2(playerName):
     """ plays the "colossal cave adventure"-like-related intro """
 
     #$ for an easier-access copy-paste
@@ -115,16 +115,16 @@ def play_coloCave_intro2(playerName):
     clear_console()
     time.sleep(1)
     color_print("\nRight now, focus on taking a good ", Fore.MAGENTA, end="")
-    color_print("LOOK ", Fore.CYAN, end="")
-    color_print("around you ; ", Fore.MAGENTA, end="")
+    color_print("LOOK AT", Fore.CYAN, end="")
+    color_print("the things around you ; ", Fore.MAGENTA, end="")
     time.sleep(4)
     color_print("don't hesitate to ", Fore.MAGENTA, end="")
     color_print("GET ", Fore.CYAN, end="")
     color_print("anything that catches your attention ; ", Fore.MAGENTA, end="")
     time.sleep(4)
     color_print("and without too much misfortune should you not run into anything - or anyone - to ", Fore.MAGENTA, end="")
-    color_print("TALK ", Fore.CYAN, end="")
-    color_print("to.", Fore.MAGENTA)
+    color_print("TALK TO", Fore.CYAN, end="")
+    color_print(".", Fore.MAGENTA)
     time.sleep(5)
 
     clear_console()
@@ -336,6 +336,6 @@ I7?I?77II???++++===???????I7I77777777777II?=+????++???+???III????I?+++++++~=++++
 
 #script
 #! DEBUG !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-witness_rapture()
-play_coloCave_intro1()
-play_coloCave_intro2("John")
+#witness_rapture()
+#play_colCave_intro1()
+#play_colCave_intro2("John")

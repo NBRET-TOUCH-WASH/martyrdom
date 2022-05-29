@@ -43,7 +43,8 @@ import persistent.tic_tac_toe.tic_tac_toe_main as ticTacToe
 import persistent.tic_tac_toe.lib.grid as grid
 
 #colossal cave adventure
-#import persistent.colossal_cave.colossalCave_main as colossalCave #$ will use when this segment is properly setup
+import persistent.colossal_cave.intro as colCaveIntro
+import persistent.colossal_cave.colossalCave_main as colossalCave
 
 
 
@@ -94,7 +95,10 @@ while True:
             ticTacToeEvent = ticTacToe.play_tic_tac_toe(grid1, True, False)
 
             display.clear_console()
-            #§ TBA: COLOSSAL CAVE SGEMENT
+            colCaveIntro.witness_rapture()
+            colCaveIntro.play_colCave_intro1()
+            colCavePlayerName = input("> ")
+            colCaveIntro.play_colCave_intro2(colCavePlayerName)
 
 
     elif userChoice == 2:
